@@ -3,6 +3,7 @@ import { useContext } from "react";
 import Grid from "./Grid";
 import Card from "./Card";
 import FlagsContext from "../contexts/CountriesContext";
+import Link from "next/link";
 
 const Flags = () => {
   const { loading, error, countries } = useContext(FlagsContext);
@@ -23,15 +24,16 @@ const Flags = () => {
           const [capitalName] = capital ?? [];
 
           return (
-            <Card
-              key={cca3}
-              index={index}
-              name={countryName}
-              flag={flag}
-              capital={capitalName}
-              region={region}
-              population={population}
-            />
+            <Link key={cca3} href={`/country/${cca3}`}>
+              <Card
+                index={index}
+                name={countryName}
+                flag={flag}
+                capital={capitalName}
+                region={region}
+                population={population}
+              />
+            </Link>
           );
         }
       )}
