@@ -3,19 +3,23 @@ import { createContext, useEffect, useState } from "react";
 import { Country } from "../types/country";
 import { countriesApi } from "../services";
 
-type FlagsContextType = {
+type CountriesContextType = {
   loading: boolean;
   error: string | null;
   countries: Country[];
 };
 
-const FlagsContext = createContext({
+const CountriesContext = createContext({
   loading: true,
   error: null,
   countries: [],
-} as FlagsContextType);
+} as CountriesContextType);
 
-export const FlagsProvider = ({ children }: { children: React.ReactNode }) => {
+export const CountriesProvider = ({
+  children,
+}: {
+  children: React.ReactNode;
+}) => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [countries, setCountries] = useState<Country[]>([]);
@@ -39,9 +43,9 @@ export const FlagsProvider = ({ children }: { children: React.ReactNode }) => {
   }, []);
 
   return (
-    <FlagsContext.Provider value={{ loading, error, countries }}>
+    <CountriesContext.Provider value={{ loading, error, countries }}>
       {children}
-    </FlagsContext.Provider>
+    </CountriesContext.Provider>
   );
 };
-export default FlagsContext;
+export default CountriesContext;

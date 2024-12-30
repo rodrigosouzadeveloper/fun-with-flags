@@ -2,7 +2,7 @@
 import { useContext } from "react";
 import Grid from "./Grid";
 import Card from "./Card";
-import FlagsContext from "../contexts/flagsContext";
+import FlagsContext from "../contexts/CountriesContext";
 
 const Flags = () => {
   const { loading, error, countries } = useContext(FlagsContext);

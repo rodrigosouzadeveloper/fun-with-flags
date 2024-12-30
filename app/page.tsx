@@ -1,15 +1,14 @@
-import { Footer, Header } from "./components";
-import Flags from "./components/Flags";
-import { FlagsProvider } from "./contexts/flagsContext";
+import { Countries, Footer, Header } from "./components";
+import { CountriesProvider } from "./contexts/CountriesContext";
 
 export default function Home() {
   return (
     <>
       <Header />
       <main className="flex-1">
-        <FlagsProvider>
-          <Flags />
-        </FlagsProvider>
+        <CountriesProvider>
+          <Countries />
+        </CountriesProvider>
       </main>
       <Footer />
     </>
