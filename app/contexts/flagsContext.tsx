@@ -1,6 +1,6 @@
 "use client";
 import { createContext, useEffect, useState } from "react";
-import { Country } from "../@types/country";
+import { Country } from "../types/country";
 import { countriesApi } from "../services";
 
 type FlagsContextType = {
