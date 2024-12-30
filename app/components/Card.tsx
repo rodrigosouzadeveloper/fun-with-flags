@@ -21,7 +21,7 @@ const Card = ({
     <div className="h-full bg-white rounded-lg shadow-lg overflow-hidden">
       <div className="aspect-video w-full">
         <Image
-          src={flag || "https://placehold.co/600x400"}
+          src={flag || "/flag-placeholder.svg"}
           className="w-full h-full object-cover"
           alt={`Flag of ${name}`}
           width={500}
