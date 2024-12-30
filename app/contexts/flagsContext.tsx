@@ -7,18 +7,12 @@ type FlagsContextType = {
   loading: boolean;
   error: string | null;
   countries: Country[];
-  setCountries: (countries: Country[]) => void;
-  setError: (error: string | null) => void;
-  setLoading: (loading: boolean) => void;
 };
 
 const FlagsContext = createContext({
   loading: true,
   error: null,
   countries: [],
-  setCountries: () => {},
-  setError: () => {},
-  setLoading: () => {},
 } as FlagsContextType);
 
 export const FlagsProvider = ({ children }: { children: React.ReactNode }) => {
@@ -45,9 +39,7 @@ export const FlagsProvider = ({ children }: { children: React.ReactNode }) => {
   }, []);
 
   return (
-    <FlagsContext.Provider
-      value={{ loading, error, countries, setCountries, setError, setLoading }}
-    >
+    <FlagsContext.Provider value={{ loading, error, countries }}>
       {children}
     </FlagsContext.Provider>
   );
