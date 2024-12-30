@@ -16,12 +16,16 @@ const ApiClient = (baseUrl: string) => ({
 });
 
 const BASE_URL = "https://restcountries.com/v3.1";
+const baseFields = "cca3,name,capital,region,population,flags";
 
 const api = ApiClient(BASE_URL);
 
 const countriesApi = {
-  getAll: () =>
-    api.get("/all?fields=cca3,name,capital,region,population,flags"),
+  getAll: () => api.get(`/all?fields=${baseFields}`),
+  getCountry: (id: string) =>
+    api.get(
+      `/alpha/${id}?fields=${baseFields},languages,currencies,tld,borders`
+    ),
 };
 
 export { countriesApi };
