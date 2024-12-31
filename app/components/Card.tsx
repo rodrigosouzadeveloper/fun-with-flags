@@ -1,4 +1,5 @@
 import Image from "next/image";
+import CountryInfo from "./CountryInfo";
 
 type CardProps = {
   index: number;
@@ -32,15 +33,9 @@ const Card = ({
       <div className="p-6 text-sm text-gray-600">
         <h2 className="text-xl font-semibold mb-4">{name}</h2>
         <div className="space-y-2">
-          <div>
-            <span className="font-semibold">Capital:</span> {capital}
-          </div>
-          <div>
-            <span className="font-semibold">Region:</span> {region}
-          </div>
-          <div>
-            <span className="font-semibold">Population:</span> {population}
-          </div>
+          <CountryInfo label="Capital" value={capital} />
+          <CountryInfo label="Region" value={region} />
+          <CountryInfo label="Population" value={population} />
         </div>
       </div>
     </div>
